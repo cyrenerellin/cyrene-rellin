@@ -1,13 +1,443 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Veloura Perfume Kiosk</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+min-height:100vh;
+color:#30222d;
+background:linear-gradient(rgba(43,25,40,.72),rgba(43,25,40,.72)),
+url("https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=2000&q=90");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+.header{
+text-align:center;
+color:white;
+padding:50px 20px 35px;
+}
+
+.header small{
+font-size:11px;
+letter-spacing:7px;
+text-transform:uppercase;
+opacity:.8;
+}
+
+.header h1{
+font-family:Georgia,serif;
+font-size:70px;
+font-weight:normal;
+letter-spacing:5px;
+margin:10px 0;
+}
+
+.header p{
+font-size:14px;
+letter-spacing:3px;
+opacity:.85;
+}
+
+.main-box{
+width:92%;
+max-width:1200px;
+margin:0 auto 55px;
+padding:40px;
+background:rgba(255,255,255,.96);
+border-radius:20px;
+border:1px solid rgba(255,255,255,.8);
+box-shadow:0 30px 80px rgba(0,0,0,.4);
+overflow:hidden;
+}
+
+.title{
+text-align:center;
+margin-bottom:30px;
+}
+
+.title h2{
+font-family:Georgia,serif;
+font-size:35px;
+font-weight:normal;
+margin-bottom:8px;
+}
+
+.title p{
+color:#887581;
+font-size:14px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.card{
+background:white;
+border:1px solid #eadfe6;
+border-radius:8px;
+overflow:hidden;
+box-shadow:0 4px 14px rgba(55,30,48,.12);
+pointer-events:none;
+user-select:none;
+}
+
+.card-image{
+height:275px;
+position:relative;
+overflow:hidden;
+background:#eee5eb;
+}
+
+.card-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.number{
+position:absolute;
+top:12px;
+left:12px;
+width:40px;
+height:40px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(255,255,255,.92);
+color:#804865;
+font-family:Georgia,serif;
+font-size:13px;
+}
+
+.badge{
+position:absolute;
+top:13px;
+right:13px;
+background:rgba(53,31,48,.85);
+color:white;
+padding:7px 9px;
+font-size:9px;
+letter-spacing:1.5px;
+}
+
+.card-body{padding:14px}
+
+.category{
+color:#a04d77;
+font-size:9px;
+font-weight:bold;
+letter-spacing:2px;
+margin-bottom:7px;
+}
+
+.card h3{
+font-family:Georgia,serif;
+font-size:23px;
+font-weight:normal;
+margin-bottom:7px;
+}
+
+.description{
+color:#7b7077;
+font-size:12px;
+line-height:1.6;
+min-height:40px;
+}
+
+.notes{
+display:flex;
+flex-wrap:wrap;
+gap:5px;
+margin:13px 0;
+}
+
+.notes span{
+padding:5px 8px;
+border:1px solid #eadce5;
+border-radius:20px;
+background:#fcf8fb;
+color:#806174;
+font-size:9px;
+}
+
+.price-row{
+border-top:1px solid #eee7eb;
+padding-top:11px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.price{
+color:#913361;
+font-size:21px;
+font-weight:bold;
+}
+
+.sold{
+color:#999;
+font-size:10px;
+}
+
+.divider{
+height:1px;
+background:#e8dce4;
+margin:40px 0;
+}
+
+.feedback-title{
+text-align:center;
+margin-bottom:22px;
+}
+
+.feedback-title h2{
+font-family:Georgia,serif;
+font-size:32px;
+font-weight:normal;
+margin-bottom:8px;
+}
+
+.feedback-title p{
+color:#887581;
+font-size:13px;
+}
+
+.feedback{
+max-width:800px;
+margin:auto;
+padding:25px;
+background:#faf7f9;
+border:1px solid #eadfe6;
+border-radius:9px;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.field{margin-bottom:15px}
+
+.field label{
+display:block;
+font-size:11px;
+font-weight:bold;
+letter-spacing:1px;
+color:#604a58;
+margin-bottom:6px;
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+border:1px solid #ddd2da;
+border-radius:6px;
+background:white;
+font-family:Arial;
+font-size:12px;
+color:#888;
+pointer-events:none;
+}
+
+textarea{
+height:95px;
+resize:none;
+}
+
+.footer{
+text-align:center;
+color:white;
+padding:25px;
+font-size:10px;
+letter-spacing:4px;
+opacity:.85;
+}
+
+@media(max-width:800px){
+.header h1{font-size:45px}
+.main-box{width:94%;padding:22px}
+.products{grid-template-columns:1fr}
+.row{grid-template-columns:1fr}
+.card-image{height:300px}
+}
+</style>
 </head>
 
 <body>
 
-    <h1>Hello World!</h1>
-    <p>This is my first HTML website.</p>
+<header class="header">
+<small>Independent Fragrance Collection</small>
+<h1>VELOURA</h1>
+<p>A SCENT THAT BECOMES A MEMORY</p>
+</header>
+
+<main class="main-box">
+
+<section>
+<div class="title">
+<h2>Featured Perfumes</h2>
+<p>Discover your signature fragrance.</p>
+</div>
+
+<div class="products">
+
+<div class="card">
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=90">
+<div class="number">01</div>
+<div class="badge">WOMEN</div>
+</div>
+
+<div class="card-body">
+<div class="category">FLORAL • SOFT</div>
+<h3>Veloura Rose</h3>
+<div class="description">
+Soft rose, vanilla and warm musk with a romantic finish.
+</div>
+
+<div class="notes">
+<span>Rose</span>
+<span>Vanilla</span>
+<span>Musk</span>
+</div>
+
+<div class="price-row">
+<span class="price"></span>
+<span class="sold">1.2k sold</span>
+</div>
+</div>
+</div>
+
+
+<div class="card">
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=900&q=90">
+<div class="number">02</div>
+<div class="badge">BEST SELLER</div>
+</div>
+
+<div class="card-body">
+<div class="category">FRESH • FLORAL</div>
+<h3>Veloura Bloom</h3>
+<div class="description">
+Fresh pear and jasmine blended into a clean elegant scent.
+</div>
+
+<div class="notes">
+<span>Pear</span>
+<span>Jasmine</span>
+<span>White Musk</span>
+</div>
+
+<div class="price-row">
+<span class="price"></span>
+<span class="sold">980 sold</span>
+</div>
+</div>
+</div>
+
+
+<div class="card">
+<div class="card-image">
+<img src="https://images.unsplash.com/photo-1587017539504-67cfbddac569?auto=format&fit=crop&w=900&q=90">
+<div class="number">03</div>
+<div class="badge">SIGNATURE</div>
+</div>
+
+<div class="card-body">
+<div class="category">WARM • LUXURIOUS</div>
+<h3>Veloura Noir</h3>
+<div class="description">
+Amber, vanilla and sandalwood with a luxurious character.
+</div>
+
+<div class="notes">
+<span>Amber</span>
+<span>Vanilla</span>
+<span>Sandalwood</span>
+</div>
+
+<div class="price-row">
+<span class="price"></span>
+<span class="sold">760 sold</span>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+
+<div class="feedback-title">
+<h2>Customer Feedback</h2>
+<p>Share your fragrance experience.</p>
+</div>
+
+<div class="feedback">
+
+<div class="row">
+
+<div class="field">
+<label>FULL NAME</label>
+<input type="text" value="Your Name" disabled>
+</div>
+
+<div class="field">
+<label>EMAIL ADDRESS</label>
+<input type="email" value="your@email.com" disabled>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="field">
+<label>FAVORITE PERFUME</label>
+<select disabled>
+<option>Veloura Rose</option>
+<option>Veloura Bloom</option>
+<option>Veloura Noir</option>
+</select>
+</div>
+
+<div class="field">
+<label>RATING</label>
+<input type="text" value="★★★★★" disabled>
+</div>
+
+</div>
+
+<div class="field">
+<label>YOUR FEEDBACK</label>
+<textarea disabled>Your fragrance experience...</textarea>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+VELOURA PERFUME
+<br><br>
+ELEGANCE • CHARACTER • MEMORY
+</footer>
 
 </body>
 </html>
